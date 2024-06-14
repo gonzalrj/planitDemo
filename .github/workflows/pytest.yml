@@ -31,17 +31,9 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
-        
-    - name: Install Firefox
-      run: |
-        sudo apt-get update
-        sudo apt-get install firefox
 
     - name: Run tests
       run: |
         pytest -m planit --base-url http://jupiter.cloud.planittesting.com
       env:
         DISPLAY: :99.0
-
-    - name: Start xvfb
-      uses: GabrielBB/xvfb-action@v1

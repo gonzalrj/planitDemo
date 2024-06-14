@@ -10,15 +10,15 @@ def driver(request):
     browser = request.config.getoption("--browser")
     options = Options()
     options.add_argument("--headless")  # Runs Chrome in headless mode.
-    firefox_options = Options()
-    firefox_options.headless = True
+    # firefox_options = Options()
+    # firefox_options.headless = True
     print(f"Creating {browser} driver.")
 
     # Create the browser instance based on the inputted --browser value from def pytest_addoption(parser)
     if browser == "chrome":
         my_driver = webdriver.Chrome(options=options)
     elif browser == "firefox":
-        my_driver = webdriver.Firefox(options=firefox_options)
+        my_driver = webdriver.Firefox()
     elif browser == "edge":
         my_driver = webdriver.Edge()
     elif browser == "safari":
