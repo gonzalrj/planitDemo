@@ -34,7 +34,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest -m planit --base-url http://jupiter.cloud.planittesting.com
+        pytest -m planit --base-url http://jupiter.cloud.planittesting.com --browser firefox
       env:
         DISPLAY: :99.0
 
