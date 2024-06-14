@@ -9,7 +9,7 @@ on:
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Check out the repository
@@ -28,4 +28,4 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest -m planit --base-url http://jupiter.cloud.planittesting.com
+        pytest -m "planit" --base-url="http://jupiter.cloud.planittesting.com"
