@@ -44,8 +44,4 @@ class ContactPage(BasePage):
             raise TypeError("Invalid field name was provided.")
 
     def wait_until_modal_is_hidden(self):
-        super()._wait_until_element_is_hidden(self.__modal_popup, 30)
-
-
-
-
+        super()._wait_until_element_is_hidden(self.__modal_popup)

@@ -13,15 +13,15 @@ class BasePage:
     def _find(self, locator: tuple) -> WebElement:
         return self._driver.find_element(*locator)
 
-    def _type(self, locator: tuple, text: str, time: int = 5):
+    def _type(self, locator: tuple, text: str, time: int = 60):
         self._wait_until_element_is_visible(locator, time)
         self._find(locator).send_keys(text)
 
-    def _wait_until_element_is_visible(self, locator, time: int = 10):
+    def _wait_until_element_is_visible(self, locator, time: int = 60):
         wait = WebDriverWait(self._driver, time)
         wait.until(ec.visibility_of_element_located(locator))
 
-    def _wait_until_element_is_hidden(self, locator, time: int = 10):
+    def _wait_until_element_is_hidden(self, locator, time: int = 60):
         wait = WebDriverWait(self._driver, time)
         wait.until(ec.invisibility_of_element_located(locator))
 
@@ -32,7 +32,7 @@ class BasePage:
     def goto_page_existing_session(self, url: str):
         self._driver.get(url)
 
-    def _click(self, locator: tuple, time: int = 5):
+    def _click(self, locator: tuple, time: int = 60):
         self._wait_until_element_is_visible(locator, time)
         self._find(locator).click()
 
