@@ -1,25 +1,28 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.firefox.options import Options
 
 
 @pytest.fixture()
 # This function runs test based on command-line provided browser option
 def driver(request):
     browser = request.config.getoption("--browser")
-    options = Options()
-    options.add_argument("--headless")  # Runs Chrome in headless mode.
     print(f"Creating {browser} driver.")
 
     # Create the browser instance based on the inputted --browser value from def pytest_addoption(parser)
     if browser == "chrome":
+        options = Options()
+        options.add_argument("--headless")  # Runs Chrome in headless mode.
         my_driver = webdriver.Chrome(options=options)
     elif browser == "firefox":
-        my_driver = webdriver.Firefox(options=options)
+        firefox_options = Options()
+        firefox_options.headless = True
+        my_driver = webdriver.Firefox(options=firefox_options)
     elif browser == "edge":
-        my_driver = webdriver.Edge(options=options)
+        my_driver = webdriver.Edge()
     elif browser == "safari":
-        my_driver = webdriver.Safari(options=options)
+        my_driver = webdriver.Safari()
     else:
         raise TypeError(f"Expected 'chrome' or 'firefox' or 'edge' or 'safari' but got {browser} instead.")
 
