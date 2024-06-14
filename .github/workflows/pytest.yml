@@ -28,4 +28,4 @@ jobs:
 
     - name: Run tests
       run: |
-        -m planit --base-url http://jupiter.cloud.planittesting.com
+        pytest -m planit --base-url http://jupiter.cloud.planittesting.com
