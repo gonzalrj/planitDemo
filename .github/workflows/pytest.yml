@@ -6,15 +6,7 @@ on:
   pull_request:
     branches: [ main ]
   workflow_dispatch:
-    inputs:
-      marker:
-        description: 'Pytest marker'
-        required: false
-        default: planit
-      base_url:
-        description: 'Base URL'
-        required: false
-        default: http://jupiter.cloud.planittesting.com
+
 
 jobs:
   build:
@@ -42,7 +34,7 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest -m "${{ github.event.inputs.marker }}" --base-url "${{ github.event.inputs.base_url }}"
+        pytest -m planit --base-url http://jupiter.cloud.planittesting.com
       env:
         DISPLAY: :99.0
 
