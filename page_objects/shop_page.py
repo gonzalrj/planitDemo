@@ -3,13 +3,13 @@ from selenium.webdriver.common.by import By
 
 
 class ShopPage(BasePage):
-    __buy_btn_stuffed_frog = (By.XPATH, "//li[@id='product-2']//a[@class='btn btn-success']")
+    __buy_btn_stuffed_frog = (By.XPATH, "//li[@id='product-2']//a[contains(text(), 'Buy')]")
     __price_stuffed_frog = (By.XPATH, "//li[@id='product-2']//span[@class='product-price ng-binding']")
 
-    __buy_btn_fluffy_bunny = (By.XPATH, "//li[@id='product-4']//a[@class='btn btn-success']")
+    __buy_btn_fluffy_bunny = (By.XPATH, "//li[@id='product-4']//a[contains(text(), 'Buy')]")
     __price_fluffy_bunny = (By.XPATH, "//li[@id='product-4']//span[@class='product-price ng-binding']")
 
-    __buy_btn_valentine_bear = (By.XPATH, "//li[@id='product-7']//a[@class='btn btn-success']")
+    __buy_btn_valentine_bear = (By.XPATH, "//li[@id='product-7']//a[contains(text(), 'Buy')]")
     __price_valentine_bear = (By.XPATH, "//li[@id='product-7']//span[@class='product-price ng-binding']")
 
     __cart_page_link = (By.XPATH, "//a[@href='#/cart']")
