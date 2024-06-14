@@ -10,11 +10,11 @@ on:
       marker:
         description: 'Pytest marker'
         required: false
-        default: 'planit'
+        default: planit
       base_url:
         description: 'Base URL'
         required: false
-        default: 'http://jupiter.cloud.planittesting.com'
+        default: http://jupiter.cloud.planittesting.com
 
 jobs:
   build:
