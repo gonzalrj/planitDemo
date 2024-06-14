@@ -8,16 +8,16 @@ from selenium.webdriver.firefox.options import Options
 # This function runs test based on command-line provided browser option
 def driver(request):
     browser = request.config.getoption("--browser")
+    options = Options()
+    options.add_argument("--headless")  # Runs Chrome in headless mode.
+    firefox_options = Options()
+    firefox_options.headless = True
     print(f"Creating {browser} driver.")
 
     # Create the browser instance based on the inputted --browser value from def pytest_addoption(parser)
     if browser == "chrome":
-        options = Options()
-        options.add_argument("--headless")  # Runs Chrome in headless mode.
         my_driver = webdriver.Chrome(options=options)
     elif browser == "firefox":
-        firefox_options = Options()
-        firefox_options.headless = True
         my_driver = webdriver.Firefox(options=firefox_options)
     elif browser == "edge":
         my_driver = webdriver.Edge()
