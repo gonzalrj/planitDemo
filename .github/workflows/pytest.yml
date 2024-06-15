@@ -34,6 +34,6 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest -m planit --base-url http://jupiter.cloud.planittesting.com
+        pytest -m planit --base-url http://jupiter.cloud.planittesting.com -n auto
       env:
         DISPLAY: :99.0
