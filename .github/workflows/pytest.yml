@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.x'
+        python-version: '3.12.4'
 
     - name: Install dependencies
       run: |
@@ -34,6 +34,6 @@ jobs:
 
     - name: Run tests
       run: |
-        pytest -m planit --base-url http://jupiter.cloud.planittesting.com -n auto
+        pytest -m planit --base-url http://jupiter.cloud.planittesting.com -n auto --html=report.html --self-contained-html
       env:
         DISPLAY: :99.0
