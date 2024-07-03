@@ -29,18 +29,21 @@ class ShopPage(BasePage):
 
     def get_unit_price_as_float(self, product) -> float:
         if product == "stuffed frog":
+            super()._wait_until_element_is_visible(self.__price_stuffed_frog)
             dollar_str = super()._find(self.__price_stuffed_frog).text
             amount_str = dollar_str.replace('$', '')
             amount_float = float(amount_str)
             return amount_float
 
         elif product == "fluffy bunny":
+            super()._wait_until_element_is_visible(self.__price_fluffy_bunny)
             dollar_str = super()._find(self.__price_fluffy_bunny).text
             amount_str = dollar_str.replace('$', '')
             amount_float = float(amount_str)
             return amount_float
 
         elif product == "valentine bear":
+            super()._wait_until_element_is_visible(self.__price_valentine_bear)
             dollar_str = super()._find(self.__price_valentine_bear).text
             amount_str = dollar_str.replace('$', '')
             amount_float = float(amount_str)

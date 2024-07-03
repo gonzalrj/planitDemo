@@ -9,20 +9,18 @@ from selenium.webdriver.firefox.options import Options
 def driver(request):
     browser = request.config.getoption("--browser")
     options = Options()
-    options.add_argument("--headless")  # Runs Chrome in headless mode.
-    # firefox_options = Options()
-    # firefox_options.headless = True
+    options.add_argument("--headless")
     print(f"Creating {browser} driver.")
 
     # Create the browser instance based on the inputted --browser value from def pytest_addoption(parser)
     if browser == "chrome":
         my_driver = webdriver.Chrome(options=options)
     elif browser == "firefox":
-        my_driver = webdriver.Firefox()
+        my_driver = webdriver.Firefox(options=options)
     elif browser == "edge":
-        my_driver = webdriver.Edge()
+        my_driver = webdriver.Edge(options=options)
     elif browser == "safari":
-        my_driver = webdriver.Safari()
+        my_driver = webdriver.Safari(options=options)
     else:
         raise TypeError(f"Expected 'chrome' or 'firefox' or 'edge' or 'safari' but got {browser} instead.")
 
